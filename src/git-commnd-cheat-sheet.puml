@@ -4,12 +4,12 @@ skinparam participantPadding 40
 skinparam BoxPadding 30
 
 actor developer as developer
-box "local" #LightBlue
+box "local" #LightCyan
 participant  "master or main" as lmaster
 participant  featureA as lfeatureA
 end box
 
-box "remote" #PaleGreen
+box "remote" #LightBlue
 participant  "master or main"  as rmaster
 participant  featureA as rfeatureA
 end box
@@ -21,7 +21,7 @@ else 存在していない
 developer -> lmaster : git init
 lmaster -> lmaster : git add .
 lmaster -> lmaster : git commit -m "First commit"
-lmaster -> lmaster : git remote add origin remote [URL]
+lmaster -> lmaster : git remote add origin [URL]
 lmaster -> rmaster : git push origin [master]
 end
 
@@ -30,7 +30,7 @@ lmaster -> lfeatureA : git branch [featureA] [master]
 
 == [featureA]ブランチへ移動 ==
 lmaster -> lfeatureA : git checkout [featureA]
-opt gitのバージョンが[2.23.0]以上の場合switchが利用可能 
+opt gitバージョンが[2.23.0]以上の場合switchが利用可能 
 lmaster -> lfeatureA : git switch -c [featureA]
 end
 
