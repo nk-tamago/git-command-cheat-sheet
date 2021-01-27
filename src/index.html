@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+</head>
+
+<body>
+    <div id="mapid" style="position:absolute;top:0;left:0;bottom:0;right:0;"></div>
+    <object data="svg/git-command-cheat-sheet.svg" type="image/svg+xml" id="cheatsheet" onload="svgLoad()"></object>
+    <script>
+        function svgLoad() {
+            // heightとwidthの値がとりたかったので、objectで読み込んで値を取ったら非表示にする
+            const svgRect = document.getElementById("cheatsheet").getBoundingClientRect();
+            document.getElementById('cheatsheet').style.display = 'none';
+
+            var image = {
+                url: "svg/git-command-cheat-sheet.svg",
+                width: svgRect.width,
+                height: svgRect.height
+            };
+
+
+            var imageBounds = L.latLngBounds(
+                [0, 0],
+                [image.height / 16, image.width / 16]
+            );
+
+            var map = L.map("mapid", {
+                crs: L.CRS.Simple,
+                maxBounds: imageBounds.pad(0.5)
+            });
+            map.fitBounds(imageBounds);
+
+            L.imageOverlay(image.url, imageBounds).addTo(map);
+        }
+    </script>
+</body>
+</html>

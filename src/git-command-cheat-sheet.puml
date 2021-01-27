@@ -20,7 +20,8 @@ developer <- rmaster : git clone [URL]
 else 存在していない
 developer -> lmaster : git init
 lmaster -> lmaster : git add .
-lmaster -> lmaster : git commit -m "First commit"
+lmaster -> lmaster : git commit -m "first commit"
+lmaster -> lmaster : git branch -M [master]
 lmaster -> lmaster : git remote add origin [URL]
 lmaster -> rmaster : git push origin [master]
 end
