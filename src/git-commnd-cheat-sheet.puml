@@ -1,6 +1,6 @@
 @startuml　git-command-cheat-sheet
 
-skinparam participantPadding 40
+skinparam participantPadding 50
 skinparam BoxPadding 30
 
 actor developer as developer
