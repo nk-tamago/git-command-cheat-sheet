@@ -1,0 +1,40 @@
+name: deploy index.html
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+    paths: 
+      - index.html
+   
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Run copy index.html
+        run: cp index.html ./docs/index.html
+
+      - name: Run git setting
+        run: |
+          git config --local user.email "cqx01552@nifty.ne.jp"
+          git config --local user.name "nk-tamago"
+      - name: Run Commit docs/index.html
+        run: |
+          git add .
+          git commit -m "auto deploy index.html by github actions" -a
+          git pull
+          git push origin main
+          
