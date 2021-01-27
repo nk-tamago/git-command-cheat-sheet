@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run copy index.html
-        run: cp index.html ./docs/index.html
+        run: cp ./src/index.html ./docs/index.html
 
       - name: Run git setting
         run: |
