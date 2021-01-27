@@ -1,1 +1,11 @@
 # git-commnd-cheat-sheet
+# OS
+.DS_Store
+Thumbs.db
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
