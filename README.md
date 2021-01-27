@@ -6,5 +6,5 @@
 ## Web Site
 https://nk-tamago.github.io/git-command-cheat-sheet/
 
-## GitHub Actions
+## Actions
 /docs will be generated automatically by Actions
