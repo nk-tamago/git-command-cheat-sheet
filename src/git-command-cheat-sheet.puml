@@ -1,7 +1,7 @@
 @startuml　git-command-cheat-sheet
 
 skinparam participantPadding 50
-skinparam BoxPadding 30
+skinparam BoxPadding 35
 
 actor developer as developer
 box "local" #LightCyan
